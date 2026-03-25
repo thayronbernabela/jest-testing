@@ -12,6 +12,7 @@ export function filterByCategory(products, category) {
   return products.filter(product => product.category === category);
 }
 
+
 /**
  * Zoekt producten die een bepaalde term bevatten
  */
