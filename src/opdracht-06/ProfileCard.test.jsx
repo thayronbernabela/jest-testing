@@ -14,19 +14,26 @@ describe('ProfileCard', () => {
     // TODO: Render ProfileCard met name="Piet" en age={30}
     // TODO: Check of tekst "Leeftijd: 30" op het scherm staat
     // Hint: gebruik screen.getByText()
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    render(<ProfileCard name="Jan" age={30} />);
+    const heading = screen.getByText('Jan');
+    expect(heading).toBeInTheDocument('leeftijd: 30');
   });
 
   test('toont bio als die er is', () => {
     // TODO: Render ProfileCard met bio="Ik hou van programmeren"
     // TODO: Check of die tekst op het scherm staat
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    render(<ProfileCard bio="ik hou van progameren"  />);
+    const heading = screen.getByText("ik hou van progameren")
+    expect(heading).toBeInTheDocument();
   });
 
   test('toont fallback tekst als bio ontbreekt', () => {
     // TODO: Render ProfileCard ZONDER bio prop
     // TODO: Check of "Geen bio beschikbaar" op het scherm staat
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
-  });
+     render(<ProfileCard />);
+    const heading = screen.getByText("Geen bio beschikbaar")
+    expect(heading).toBeInTheDocument();
+  
+  })
 
 });
